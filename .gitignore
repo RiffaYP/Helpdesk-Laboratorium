@@ -1,0 +1,23 @@
+# Compiled class files
+*.class
+
+# BlueJ project files
+*.ctxt
+package.bluej
+bluej.pkg
+bluej.pkh
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+build/
+out/
+dist/
