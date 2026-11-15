@@ -67,6 +67,6 @@ Halaman dashboard:
 - Data disimpan di memori (ArrayList); hilang saat aplikasi ditutup.
 - Password masih disimpan plaintext — untuk keperluan pembelajaran.
 
-## Penulis
+## Referensi
 
-Riffa Yudika Permana — 2415061091
+Tugas mata kuliah Pemrograman Berorientasi Objek (PBO).
