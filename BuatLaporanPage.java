@@ -32,7 +32,9 @@ public class BuatLaporanPage implements Refreshable {
 
         JPanel columns = new JPanel(new GridLayout(1, 2, Theme.GAP, Theme.GAP));
         columns.setOpaque(false);
-        columns.setMaximumSize(new Dimension(Integer.MAX_VALUE, 520));
+        columns.setMaximumSize(new Dimension(Integer.MAX_VALUE, 560));
+        columns.setPreferredSize(new Dimension(0, 560));
+        columns.setAlignmentX(Component.LEFT_ALIGNMENT);
         columns.add(buildForm());
         columns.add(buildRiwayat());
         root.add(columns);

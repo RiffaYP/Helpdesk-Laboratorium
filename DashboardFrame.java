@@ -196,12 +196,23 @@ public class DashboardFrame extends JFrame {
 
     private void addPage(String key, String title, JComponent page) {
         page.setName(title);
+        page.setBackground(Theme.BG);
+        page.setBorder(new EmptyBorder(0, 0, 0, 0));
         pageCache.put(key, page);
-        JScrollPane sp = new JScrollPane(page);
-        sp.setName(title);
+
+        JPanel host = new JPanel(new BorderLayout());
+        host.setBackground(Theme.BG);
+        host.add(page, BorderLayout.NORTH);
+
+        ScrollableHost wrap = new ScrollableHost(host);
+
+        JScrollPane sp = new JScrollPane(wrap,
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         sp.setBorder(null);
         sp.getViewport().setBackground(Theme.BG);
-        sp.getVerticalScrollBar().setUnitIncrement(16);
+        sp.getVerticalScrollBar().setUnitIncrement(18);
+        sp.getVerticalScrollBar().setBlockIncrement(120);
         sp.setName(title);
         pageHost.add(sp, key);
     }
@@ -254,5 +265,19 @@ public class DashboardFrame extends JFrame {
             }
             panel.repaint();
         }
+    }
+
+    private static class ScrollableHost extends JPanel implements Scrollable {
+        ScrollableHost(JComponent content) {
+            super(new BorderLayout());
+            setBackground(Theme.BG);
+            add(content, BorderLayout.NORTH);
+        }
+
+        @Override public Dimension getPreferredScrollableViewportSize() { return getPreferredSize(); }
+        @Override public int getScrollableUnitIncrement(Rectangle r, int o, int d) { return 18; }
+        @Override public int getScrollableBlockIncrement(Rectangle r, int o, int d) { return 120; }
+        @Override public boolean getScrollableTracksViewportWidth() { return true; }
+        @Override public boolean getScrollableTracksViewportHeight() { return false; }
     }
 }

@@ -22,6 +22,7 @@ public class DashboardPage implements Refreshable {
 
         JPanel hero = Ui.card(new BorderLayout(10, 6));
         hero.setMaximumSize(new Dimension(Integer.MAX_VALUE, 92));
+        hero.setAlignmentX(Component.LEFT_ALIGNMENT);
         JLabel welcome = Ui.h2("Selamat datang, " + user.getNama());
         JLabel hint = Ui.muted(hintForRole());
         JPanel heroText = new JPanel();
@@ -44,10 +45,12 @@ public class DashboardPage implements Refreshable {
         statRow.setOpaque(false);
         statRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 110));
         statRow.setPreferredSize(new Dimension(0, 110));
+        statRow.setAlignmentX(Component.LEFT_ALIGNMENT);
         root.add(statRow);
         root.add(Box.createVerticalStrut(Theme.GAP));
 
         JPanel recent = Ui.card(new BorderLayout(0, 12));
+        recent.setAlignmentX(Component.LEFT_ALIGNMENT);
         recent.add(Ui.h3("Aktivitas Terbaru"), BorderLayout.NORTH);
         recent.add(recentHost, BorderLayout.CENTER);
         root.add(recent);

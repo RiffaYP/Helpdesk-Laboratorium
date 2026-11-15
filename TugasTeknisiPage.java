@@ -35,10 +35,13 @@ public class TugasTeknisiPage implements Refreshable {
         statRow.setOpaque(false);
         statRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 110));
         statRow.setPreferredSize(new Dimension(0, 110));
+        statRow.setMinimumSize(new Dimension(0, 110));
+        statRow.setAlignmentX(Component.LEFT_ALIGNMENT);
         root.add(statRow);
         root.add(Box.createVerticalStrut(Theme.GAP));
 
         JPanel card = Ui.card(new BorderLayout(0, 12));
+        card.setAlignmentX(Component.LEFT_ALIGNMENT);
         card.add(buildToolbar(), BorderLayout.NORTH);
 
         model.setColumnIdentifiers(new Object[]{
@@ -50,6 +53,8 @@ public class TugasTeknisiPage implements Refreshable {
         Ui.centerColumns(tabel, 0);
         JScrollPane sp = Ui.scroll(tabel);
         sp.setBorder(null);
+        sp.setPreferredSize(new Dimension(0, 300));
+        sp.setMinimumSize(new Dimension(0, 150));
         card.add(sp, BorderLayout.CENTER);
 
         JPanel bottom = new JPanel(new BorderLayout(0, 8));

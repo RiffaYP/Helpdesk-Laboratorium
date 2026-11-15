@@ -39,11 +39,14 @@ public class KelolaLaporanPage implements Refreshable {
         statRow.setOpaque(false);
         statRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 110));
         statRow.setPreferredSize(new Dimension(0, 110));
+        statRow.setMinimumSize(new Dimension(0, 110));
+        statRow.setAlignmentX(Component.LEFT_ALIGNMENT);
         root.add(statRow);
         root.add(Box.createVerticalStrut(Theme.GAP));
 
         JPanel card = Ui.card(new BorderLayout(0, 14));
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        card.setAlignmentX(Component.LEFT_ALIGNMENT);
         card.add(buildToolbar(), BorderLayout.NORTH);
 
         buildModel();
@@ -53,6 +56,8 @@ public class KelolaLaporanPage implements Refreshable {
         Ui.centerColumns(tabel, 0);
         JScrollPane sp = Ui.scroll(tabel);
         sp.setBorder(null);
+        sp.setPreferredSize(new Dimension(0, 320));
+        sp.setMinimumSize(new Dimension(0, 160));
         card.add(sp, BorderLayout.CENTER);
         card.add(buildActions(), BorderLayout.SOUTH);
 
